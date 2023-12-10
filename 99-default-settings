@@ -9,7 +9,7 @@ sed -i "s/op.supes.top/dl.openwrt.ai/" /etc/opkg/distfeeds.conf
 version=`uci -q get base_config.@status[0].version`
 
 hostname=`uci -q get system.@system[0].hostname`
-[ -n "${hostname}" ] || hostname="OpenWrt"
+[ -n "${hostname}" ] || hostname="NeoBird"
 
 if [ "$(uci -q get dhcp.@dnsmasq[0].port)" != "53" ]; then
 	uci -q set dhcp.@dnsmasq[0].port='53'
@@ -154,6 +154,8 @@ if [[ ! "$version" || "$version" -lt 1 ]]; then
  
 	uci -q set network.globals.packet_steering=1
 	uci -q set network.@device[0].promisc=1
+        uci set network.lan.gateway=192.168.1.1
+        uci set network.lan.dns=127.0.0.1
 	uci commit network
   
 	uci -q set dhcp.@dnsmasq[0].dns_redirect='1'
