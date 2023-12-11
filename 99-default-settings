@@ -1,5 +1,6 @@
 #!/bin/sh
 
+chmod 755 /etc/smartdns/up.sh
 sed -i "s/op.supes.top/dl.openwrt.ai/" /etc/opkg/distfeeds.conf
 
 ([ -x /bin/bash ] && ! grep -q "^root.*bash" /etc/passwd) && sed -i "s/^\(root.*\/\)ash/\1bash/g" /etc/passwd
@@ -156,6 +157,7 @@ if [[ ! "$version" || "$version" -lt 1 ]]; then
 	uci -q set network.@device[0].promisc=1
         uci set network.lan.gateway=192.168.1.1
         uci set network.lan.dns=127.0.0.1
+        sed -i '/option ip6assign/d' /etc/config/network
 	uci commit network
   
 	uci -q set dhcp.@dnsmasq[0].dns_redirect='1'
