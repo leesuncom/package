@@ -53,6 +53,7 @@ if [[ ! "$version" || "$version" -lt 1 ]]; then
 	
 	if uci -q get system.@system[0] >/dev/null; then
 		uci -q set system.@system[0].zonename='Asia/Shanghai'
+                uci -q set system.@system[0].hostname='NeoBird'
 		uci -q set system.@system[0].timezone='CST-8'
 		uci -q set system.@system[0].conloglevel='4'
 		uci -q set system.@system[0].cronloglevel='8'
