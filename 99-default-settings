@@ -3,6 +3,7 @@
 chmod 755 /etc/smartdns/up.sh
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
+
 sed -i "s/op.supes.top/dl.openwrt.ai/" /etc/opkg/distfeeds.conf
 
 ([ -x /bin/bash ] && ! grep -q "^root.*bash" /etc/passwd) && sed -i "s/^\(root.*\/\)ash/\1bash/g" /etc/passwd
@@ -173,6 +174,10 @@ if [[ ! "$version" || "$version" -lt 1 ]]; then
         # uci -q set dhcp.lan.ra='hybrid'
 	# uci -q set dhcp.lan.ndp='hybrid'
 	# uci -q set dhcp.lan.dhcpv6='hybrid'
+        sed -i '/option ra_management/d'
+        sed -i '/option filter_aaaa/d' /etc/config/dhcp
+        sed -i '/option ra/d' /etc/config/dhcp
+        sed -i '/option dhcpv6/d' /etc/config/dhcp
 	uci commit dhcp
 
 	uci -q set nft-qos.default.limit_enable='0'
