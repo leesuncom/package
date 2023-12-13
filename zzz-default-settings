@@ -61,4 +61,26 @@ echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 rm -rf /tmp/luci-modulecache/
 rm -f /tmp/luci-indexcache
 
+uci set network.lan.gateway=192.168.1.1
+uci set network.lan.dns=127.0.0.1
+sed -i '/option ip6assign/d' /etc/config/network
+sed -i '/option type/d' /etc/config/network
+uci commit network
+
+sed -i '/option ra_management/d' /etc/config/dhcp
+sed -i '/option dhcpv6/d' /etc/config/dhcp
+sed -i '/option ra/d' /etc/config/dhcp
+uci set dhcp.lan.ignore=1
+sed -i 's/8192/0/g' /etc/config/dhcp
+sed -i '/option filter_aaaa/d' /etc/config/dhcp
+sed -i '/1232/a\option filter_aaaa 1' /etc/config/dhcp
+uci commit dhcp
+
+sed -i '17,144d' /etc/config/firewall
+sed -i '/option syn_flood/d' /etc/config/firewall
+sed -i '15aoption masq 1' /etc/config/firewall
+uci commit firewall
+
+chmod 755 /etc/smartdns/up.sh
+
 exit 0
