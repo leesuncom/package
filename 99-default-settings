@@ -1,6 +1,5 @@
 #!/bin/sh
 
-chmod 755 /etc/smartdns/up.sh
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
 
