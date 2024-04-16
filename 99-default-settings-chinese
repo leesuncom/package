@@ -22,6 +22,12 @@ sed -i 's/"LED Configuration"/"指示灯"/g' /usr/share/luci/menu.d/luci-mod-sys
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
 
+uci set network.lan.gateway=192.168.1.1
+uci set network.lan.dns=127.0.0.1
+sed -i '/option type/d'
+sed -i '/option ip6assign/d'
+uci commit network
+
 uci -q get system.@imm_init[0] > "/dev/null" || uci -q add system imm_init > "/dev/null"
 
 if ! uci -q get system.@imm_init[0].system_chn > "/dev/null"; then
