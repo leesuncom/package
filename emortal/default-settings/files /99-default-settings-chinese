@@ -17,6 +17,7 @@ sed -i 's#"UPnP IGD & PCP/NAT-PMP"#"即插即用"#g' /usr/share/luci/menu.d/luci
 sed -i 's/"DHCP and DNS"/"动态主机"/g' /usr/share/luci/menu.d/luci-mod-network.json
 sed -i 's/"Wizard"/"向导"/g' /usr/share/luci/menu.d/luci-app-wizard.json
 sed -i 's/"Terminal"/"终端命令"/g' /usr/share/luci/menu.d/luci-app-ttyd.json
+sed -i 's/"LED Configuration"/"指示灯"/g' /usr/share/luci/menu.d/luci-mod-system.json
 
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
