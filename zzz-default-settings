@@ -81,6 +81,4 @@ sed -i '/option syn_flood/d' /etc/config/firewall
 sed -i '15aoption masq 1' /etc/config/firewall
 uci commit firewall
 
-chmod 755 /etc/smartdns/up.sh
-
 exit 0
