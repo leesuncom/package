@@ -21,7 +21,7 @@ sed -i 's/"Terminal"/"终端命令"/g' /usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
 
-sed -i "s/op.supes.top/dl.openwrt.ai/" /etc/opkg/distfeeds.conf
+# sed -i "s/op.supes.top/dl.openwrt.ai/" /etc/opkg/distfeeds.conf
 
 ([ -x /bin/bash ] && ! grep -q "^root.*bash" /etc/passwd) && sed -i "s/^\(root.*\/\)ash/\1bash/g" /etc/passwd
 
