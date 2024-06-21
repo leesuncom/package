@@ -7,7 +7,7 @@ sed -i 's/"Docker"/"容器"/g' /usr/lib/lua/luci/controller/dockerman.lua
 sed -i 's#"IP/MAC Binding"#"地址绑定"#g' /usr/lib/lua/luci/controller/arpbind.lua
 sed -i 's/"MosDNS"/"域名转发"/g' /usr/lib/lua/luci/controller/mosdns.lua
 sed -i 's/"iStore"/"应用"/g' /usr/lib/lua/luci/controller/store.lua
-sed -i 's/"OpenClash"/"世界之窗"/g' /usr/lib/lua/luci/controller/openclash.lua
+sed -i 's/"OpenClash"/"门外世界"/g' /usr/lib/lua/luci/controller/openclash.lua
 sed -i 's/"KMS Server"/"微软激活"/g' /usr/lib/lua/luci/controller/vlmcsd.lua
 sed -i 's/"IPTV Helper"/"电视组播"/g' /usr/lib/lua/luci/controller/iptvhelper.lua
 sed -i 's/"DDNS-GO"/"域名解析"/g' /usr/lib/lua/luci/controller/ddns-go.lua
@@ -18,6 +18,8 @@ sed -i 's/"DHCP and DNS"/"动态主机"/g' /usr/share/luci/menu.d/luci-mod-netwo
 sed -i 's/"Wizard"/"向导"/g' /usr/share/luci/menu.d/luci-app-wizard.json
 sed -i 's/"Terminal"/"终端命令"/g' /usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/"LED Configuration"/"指示灯"/g' /usr/share/luci/menu.d/luci-mod-system.json
+sed -i 's/"Pass Wall"/"窗外世界"/g' /usr/lib/lua/luci/controller/passwall.lua
+sed -i 's/"ShadowSocksR Plus+"/"墙外世界"/g' /usr/lib/lua/luci/controller/shadowsocksr.lua
 
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
