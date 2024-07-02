@@ -23,6 +23,7 @@ sed -i 's/"ShadowSocksR Plus+"/"墙外世界"/g' /usr/lib/lua/luci/controller/sh
 
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='NeoBird Compiled in $(TZ=UTC-8 date +%Y.%m.%d-%H%M) @ OpenWrt 23.05'" >> /etc/openwrt_release
+chmod 755 /etc/mosdns/update.sh
 
 uci set network.lan.gateway=192.168.1.1
 uci set network.lan.dns=127.0.0.1
