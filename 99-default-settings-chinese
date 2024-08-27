@@ -5,7 +5,7 @@ sed -i 's/"NetworkGuide"/"向导"/g' /usr/lib/lua/luci/controller/quickstart.lua
 sed -i 's/"S.M.A.R.T."/"硬盘状态"/g' /usr/lib/lua/luci/controller/quickstart.lua
 sed -i 's/"Docker"/"容器"/g' /usr/lib/lua/luci/controller/dockerman.lua
 sed -i 's#"IP/MAC Binding"#"地址绑定"#g' /usr/lib/lua/luci/controller/arpbind.lua
-sed -i 's/"MosDNS"/"域名转发"/g' /usr/lib/lua/luci/controller/mosdns.lua
+sed -i 's/"MosDNS"/"域名转发"/g' /usr/share/luci/menu.d/luci-app-mosdns.json
 sed -i 's/"iStore"/"应用"/g' /usr/lib/lua/luci/controller/store.lua
 sed -i 's/"OpenClash"/"门外世界"/g' /usr/lib/lua/luci/controller/openclash.lua
 sed -i 's/"KMS Server"/"微软激活"/g' /usr/lib/lua/luci/controller/vlmcsd.lua
